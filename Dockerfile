@@ -36,14 +36,11 @@ RUN chmod -R 775 /var/www/html/storage
 # Install Composer (if needed)
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
  
-# Generate application key
-RUN php artisan key:generate
- 
 # Install PHP dependencies
 RUN composer install --no-interaction --optimize-autoloader
  
 # Set environment variables
-ENV APP_ENV=production
+ENV APP_ENV=local
 ENV APP_KEY=base64:eBlugB467OvhsrawcaDihaeefssCFMficBw9e5b0N44=
 ENV DB_CONNECTION=mysql
 ENV DB_HOST=mysql

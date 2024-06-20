@@ -42,6 +42,16 @@ RUN php artisan key:generate
 # Install PHP dependencies
 RUN composer install --no-interaction --optimize-autoloader
  
+# Set environment variables
+ENV APP_ENV=production
+ENV APP_KEY=base64:eBlugB467OvhsrawcaDihaeefssCFMficBw9e5b0N44=
+ENV DB_CONNECTION=mysql
+ENV DB_HOST=mysql
+ENV DB_PORT=3306
+ENV DB_DATABASE=mood_db
+ENV DB_USERNAME=root
+ENV DB_PASSWORD=root
+
 # Optimize Laravel
 RUN php artisan optimize
  

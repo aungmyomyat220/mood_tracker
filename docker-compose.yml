@@ -7,14 +7,14 @@ services:
     volumes:
       - .:/var/www/html 
     ports:
-      - "8001:80"
+      - "8080:80"
     depends_on:
       - mysql
  
   mysql:
     image: mysql:latest
     environment:
-      MYSQL_DATABASE: deliverium
+      MYSQL_DATABASE: mood_db
       MYSQL_ROOT_PASSWORD: root
     volumes:
       - mysql_data:/var/lib/mysql
